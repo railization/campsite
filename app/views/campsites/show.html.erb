@@ -1,0 +1,46 @@
+<div class="page-head">
+  <!-- BEGIN PAGE TITLE -->
+  <div class="page-title">
+    <h1>Check in/out</h1>
+    <h1>Activities in <%= @campsite.name %>
+      <small>All Activities in <%= @campsite.name %> Campsite</small>
+    </h1>
+  </div>
+</div>
+
+<div class="col-lg-10">
+  <div class="portlet light portlet-fit bordered">
+    <div class="portlet-ttle">
+
+    </div>
+    <div class="portlet-body">
+      <div class="mt-element-list">
+        <div class="mt-list-head list-simple font-white bg-red">
+          <div class="list-head-title-container">
+            <div class="list-date">Total Child</div>
+            <h3 class="list-title">Activity List</h3>
+          </div>
+        </div>
+        <div class="mt-list-container list-simple">
+          <ul>
+
+            <% @campsite.activities.each do |activity|  %>
+                <li class="mt-list-item">
+                  <div class="list-icon-container done">
+                    <i class="icon-check"></i>
+                  </div>
+                  <div class="list-datetime"> <%= activity.children.count %> </div>
+                  <div class="list-item-content">
+                    <h3 class="uppercase">
+                      <a href="<%= activity_path(activity.id) %>"><%= activity.name %></a>
+                    </h3>
+                  </div>
+                </li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

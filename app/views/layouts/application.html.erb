@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CampsiteApp</title>
+  <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&subset=all" rel="stylesheet" type="text/css" />
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body class="page-container-bg-solid page-header-fixed page-sidebar-closed-hide-logo page-md">
+<%= render partial: "layouts/partials/top_header" %>
+<div class="clearfix"> </div>
+<div class="page-container">
+
+  <%= render partial: "layouts/partials/side_menu" %>
+  <div class="page-content-wrapper">
+    <!-- BEGIN CONTENT BODY -->
+    <div class="page-content">
+
+<%= yield %>
+      </div>
+  </div>
+  </div>
+
+<div class="page-footer">
+  <div class="page-footer-inner"> 2016 &copy; Metronic Theme By
+    <a target="_blank" href="http://keenthemes.com">Keenthemes</a> &nbsp;|&nbsp;
+    <a href="http://themeforest.net/item/metronic-responsive-admin-dashboard-template/4021469?ref=keenthemes" title="Purchase Metronic just for 27$ and get lifetime updates for free" target="_blank">Purchase Metronic!</a>
+  </div>
+  <div class="scroll-to-top">
+    <i class="icon-arrow-up"></i>
+  </div>
+</div>
+<!-- END FOOTER -->
+<!-- BEGIN QUICK NAV -->
+
+<div class="quick-nav-overlay"></div>
+
+<%= javascript_include_tag 'application'%>
+</body>
+</html>

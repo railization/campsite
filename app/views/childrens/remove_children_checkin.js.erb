@@ -1,0 +1,2 @@
+$("#child_list<%= @child.id%>").css("background-color","red");
+$('.total_checked_in_childrens').html("<%= @activity.checked_in_childs.length%>/<%= @activity.children.count%>   ")

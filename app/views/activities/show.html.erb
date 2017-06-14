@@ -1,0 +1,67 @@
+<div class="page-head">
+  <!-- BEGIN PAGE TITLE -->
+  <div class="page-title">
+    <h1><%= @activity.name %>
+      <small>All Children in <%= @activity.name %> Activity</small>
+    </h1>
+  </div>
+</div>
+
+
+
+<div class="col-lg-10">
+
+  <div class="total_checked_in_childrens">
+    <%= @activity.checked_in_childs.length%>/<%= @activity.children.count%>   
+  </div>
+
+  <div class="form-group">
+    <%= form_tag activity_path(@activity), :method => :get, :class => "search_activity_childs_form" do %>        
+      <label></label>
+      <div class="input-group">      
+          <%= text_field_tag :keyword, params[:keyword], :class => "form-control", :placeholder => "Search for...", :onchange => "$('.search_activity_childs_form').submit();" %>
+          <span class="input-group-btn">
+              <button class="btn red" type="button">Go!</button>
+          </span>      
+      </div>
+      <!-- /input-group -->
+    <% end %>    
+  </div>
+
+  <div class="portlet light portlet-fit bordered">
+    <div class="portlet-ttle">
+
+    </div>
+    <div class="portlet-body">
+      <div class="mt-element-list">
+        <div class="mt-list-head list-simple font-white bg-red">
+          <div class="list-head-title-container">
+            <!--<div class="list-date">Total Child</div>-->
+            <h3 class="list-title">Child List</h3>
+          </div>
+        </div>
+        <div class="mt-list-container list-simple">
+          <ul>
+
+            <% @children.each do |child|  %>
+                <li class="mt-list-item" style="background-color:<%=child_color(child, @activity.id) %>;" id="child_list<%= child.id%>">
+                  <div class="list-icon-container done">
+                    <i class="icon-check"></i>
+                  </div>
+                  <!--<div class="list-datetime">  </div>-->
+                  <div class="list-item-content">
+                    <h3 class="uppercase">
+                      <%= link_to child.name, checkin_children_path(child_id: child.id , activity_id: @activity.id),  :method=> :post,:remote => true, :class => "font-white" %>
+
+                      <%= link_to 'undo', remove_checkin_children_path(child_id: child.id , activity_id: @activity.id),:method=> :post, data: {confirm: 'undo check in/out?'} , class:"hidden" ,:remote => true, id:"undo_link#{child.id}" %>
+                    </h3>
+                  </div>
+                </li>
+            <% end %>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

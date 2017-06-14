@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  child_id: 1
+  activity_id: 1
+  category: MyString
+  timestamp: 2017-06-13 14:49:21
+
+two:
+  child_id: 1
+  activity_id: 1
+  category: MyString
+  timestamp: 2017-06-13 14:49:21

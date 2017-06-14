@@ -1,0 +1,10 @@
+<% if @child_checkin.present? && @child_checkout.present?  %>
+
+$("#undo_link<%= @child.id%>").trigger( "click" );
+<% elsif @child_checkout_create.present? &&  @child_checkout_create.category == "out"  %>
+$("#child_list<%= @child.id%>").css("background-color","green");
+<% elsif @child_checkin_create.present?  && @child_checkin_create.category == "in" %>
+$("#child_list<%= @child.id%>").css("background-color","blue");
+
+<% end %>
+$('.total_checked_in_childrens').html("<%= @activity.checked_in_childs.length%>/<%= @activity.children.count%>   ")

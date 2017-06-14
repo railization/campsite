@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: development_campsite
+  pool: 5
+  username: zain
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: test_campsite
+  pool: 5
+  username: zain
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: production_campsite
+  pool: 5
+  username: zain
+  password:
